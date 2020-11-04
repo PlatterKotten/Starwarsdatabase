@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Swapi.PlanetPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+                <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="Yellow" Text ="{Binding planet.name}"></Label>
+                <Line X1="10" Y1="0" X2="405" Y2="0" StrokeLineCap="Round" Stroke="#1C5CDC" StrokeThickness="3" />
+                <Frame BackgroundColor="Transparent" Padding="1"  Opacity="1" HeightRequest="395" WidthRequest="395" HorizontalOptions="CenterAndExpand" >
+                    <Image x:Name="myImage"  Scale="1" HeightRequest="405" WidthRequest="405" Source="{Binding image}" Aspect="AspectFill"></Image>
+                </Frame>
+                <Line X1="10" Y1="0" X2="405" Y2="0" StrokeLineCap="Round" Stroke="#1C5CDC" StrokeThickness="3" />
+                <Grid                    
+                     RowSpacing="1" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" FontSize="15" TextColor="White" Text="{Binding planet.rotation_period,StringFormat='Rotation Period: {0}' }"/>
+                    <Label Grid.Row="1" FontSize="15" TextColor="White" Text="{Binding planet.orbital_period,StringFormat='Orbital Period: {0}' }"/>
+                    <Label Grid.Row="2" FontSize="15" TextColor="White" Text="{Binding planet.diameter,StringFormat='Diameter: {0}' }"/>
+                    <Label Grid.Row="3" FontSize="15" TextColor="White" Text="{Binding planet.climate,StringFormat='Climate: {0}' }"/>
+                    <Label Grid.Row="4" FontSize="15" TextColor="White" Text="{Binding planet.gravity,StringFormat='Gravity: {0}' }"/>
+                    <Label Grid.Row="5" FontSize="15" TextColor="White" Text="{Binding planet.terrain,StringFormat='Terrain: {0}' }"/>
+                    <Label Grid.Row="6" FontSize="15" TextColor="White" Text="{Binding planet.surface_water,StringFormat='Surface Water: {0}' }"/>
+                    <Label Grid.Row="7" FontSize="15" TextColor="White" Text="{Binding planet.population,StringFormat='Population: {0}' }"/>
+                </Grid>
+                <Line X1="10" Y1="0" X2="405" Y2="0" StrokeLineCap="Round" Stroke="#1C5CDC" StrokeThickness="3" />
+                <Expander>
+                    <Expander.Header>
+                        <Label Text="Movies"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                    </Expander.Header>
+                    <StackLayout BindableLayout.ItemsSource="{Binding movies}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate >
+                                <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                                
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                    <Grid 
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding title}"
+                                                VerticalOptions="EndAndExpand"/>
+                                    </Grid>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClickedOnMovie"/>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Expander>
+                <Expander>
+                    <Expander.Header>
+                        <Label Text="Characters"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                    </Expander.Header>
+                    <StackLayout BindableLayout.ItemsSource="{Binding people}"  >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate >
+                                <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                    <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                               
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                    </Grid>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClickedCharacter"/>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Expander>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

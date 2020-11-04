@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Swapi.MainPage">
+    <StackLayout VerticalOptions="Start" Margin="0,180">
+        <Image  HeightRequest="160" WidthRequest="300" Source="starwarslogo.png"></Image>
+        <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="Yellow" Text ="The Imperial Database"></Label>
+        <Expander Margin="0,100">
+            <Expander.Header>
+                <Label Text="Tap To Start"
+                   TextColor="Yellow"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+            </Expander.Header>
+            <StackLayout BindableLayout.ItemsSource="{Binding movies}" >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate >
+                        <ContentView HorizontalOptions="FillAndExpand"                                                                   
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                            <Grid 
+                                  RowSpacing="1" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding title}"
+                                                VerticalOptions="EndAndExpand"/>
+                            </Grid>
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ClickedOnMovie"/>
+                            </ContentView.GestureRecognizers>
+                        </ContentView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </Expander>
+    </StackLayout>
+</ContentPage>
+

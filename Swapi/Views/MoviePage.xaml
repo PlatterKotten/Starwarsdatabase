@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Swapi.MoviePage">
+    <ScrollView>
+        <StackLayout>
+            <Label FontSize="25" HorizontalTextAlignment="Center" TextColor="Yellow" Text ="{Binding movie.title}"></Label>
+            <Line X1="10" Y1="0" X2="405" Y2="0" StrokeLineCap="Round" Stroke="Yellow" StrokeThickness="3" />
+            <Image   HeightRequest="610" WidthRequest="260" Source="{Binding image}"></Image>
+            <Grid             
+                      RowSpacing="1" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="18"/>
+                        <RowDefinition Height="18"/>
+                    <RowDefinition Height="14"/>
+                </Grid.RowDefinitions>
+                    <Label Grid.Row="0"  FontSize="15" TextColor="White" Text="{Binding movie.director,StringFormat='Director: {0}' }"/>
+                    <Label Grid.Row="1" FontSize="15" TextColor="White" Text="{Binding movie.producer,StringFormat='Producer: {0}' }"/>
+                    <Label Grid.Row="2" FontSize="15" TextColor="White" Text="{Binding movie.release_date,StringFormat='Release Date: {0}' }"/>
+                    <Button Grid.Row="3" Text="Main Menu" Clicked="GoToMainPage" FontSize="15" HorizontalOptions="Start" TextColor="Yellow"></Button>
+                    <Button Grid.Row="4" Text="Watch Intro" Clicked="GoToMoviePage" FontSize="15" HorizontalOptions="Start" TextColor="Yellow"></Button>
+            </Grid>
+            <Line  X1="10" Y1="0" X2="405" Y2="0" StrokeLineCap="Round" Stroke="Yellow" StrokeThickness="3" />
+            <Expander>
+                <Expander.Header>
+                    <Label Text="Opening Crawl"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                </Expander.Header>
+                <Label HorizontalTextAlignment="Center" Text="{Binding movie.opening_crawl}" TextColor="Yellow"/>
+            </Expander>
+            <Expander>
+                <Expander.Header>
+                    <Label Text="Characters"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                </Expander.Header>
+                <StackLayout BindableLayout.ItemsSource="{Binding people}"  >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate >
+                            <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                               
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                </Grid>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ClickedCharacter"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Expander>
+            <Expander>
+                    <Expander.Header>
+                        <Label Text="Planets"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                    </Expander.Header>
+                    <StackLayout BindableLayout.ItemsSource="{Binding planets}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate >
+                                <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                    <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                    </Grid>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClickedPlanet"/>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Expander>
+                <Expander>
+                    <Expander.Header>
+                        <Label Text="Starships"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                    </Expander.Header>
+                    <StackLayout BindableLayout.ItemsSource="{Binding starships}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate >
+                                <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                    <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                    </Grid>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClickedOnStarship"/>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Expander>
+                <Expander>
+                    <Expander.Header>
+                        <Label Text="Vehicles"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                    </Expander.Header>
+                    <StackLayout BindableLayout.ItemsSource="{Binding vehicles}" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate >
+                                <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                    <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                    </Grid>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ClickedOnVehicle"/>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Expander>
+            <Expander>
+                <Expander.Header>
+                    <Label Text="Speices"
+                   TextColor="#4BAACB"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+                </Expander.Header>
+                <StackLayout BindableLayout.ItemsSource="{Binding species}" >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate >
+                            <ContentView HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"                                              
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="1">
+                                <Grid
+                                          RowSpacing="1" Padding="10"
+                                          >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                                HorizontalTextAlignment="Center"
+                                                TextColor="Yellow"
+                                                Grid.Column="0"   
+                                                Grid.Row="0"
+                                                Text="{Binding name}"
+                                                VerticalOptions="EndAndExpand"/>
+                                </Grid>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ClickedSpecies"/>
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Expander>
+        </StackLayout>
+        </ScrollView>
+   
+</ContentPage>

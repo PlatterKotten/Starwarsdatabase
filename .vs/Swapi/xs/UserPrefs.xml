@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{34D8C708-A6B8-4C73-8FD0-E22ADA6CD5E7}|Default">
+  <MonoDevelop.Ide.ItemProperties.Swapi.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.66FA9991-E34F-4D9F-AB8B-584CEC3F6128" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Swapi/MoviePage.xaml">
+    <Files>
+      <File FileName="Swapi/Models/Movie.cs" Line="41" Column="23" />
+      <File FileName="Swapi/MainPage.xaml.cs" Line="22" Column="1" />
+      <File FileName="Swapi/MoviePage.xaml" Line="17" Column="15" />
+      <File FileName="Swapi/MoviePage.xaml.cs" Line="10" Column="8" />
+      <File FileName="Swapi/MoviePageViewModel.cs" Line="11" Column="1" />
+      <File FileName="Swapi/MainPage.xaml" Line="38" Column="31" />
+      <File FileName="Swapi/API/RestService.cs" Line="48" Column="1" />
+      <File FileName="Swapi.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="Swapi/MainPageViewModel.cs" Line="9" Column="47" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Swapi" expanded="True">
+            <Node name="Swapi" expanded="True">
+              <Node name="API" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True" />
+              <Node name="MoviePage.xaml" expanded="True" selected="True" />
+            </Node>
+            <Node name="Swapi.Android" expanded="True" />
+            <Node name="Swapi.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Swapi.Android FirstBuild="True" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "hizp998bwR5LT5MRpcXDBWoclGot/m9zxLwvC2Mt1cmhGT2WTO2FxEmc9/k9pHshMIzjyNaNejyh6TidmErFzw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aaabo\\Desktop\\Swapi\\Swapi.iOS\\Swapi.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aaabo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\aaabo\\.nuget\\packages\\xamarin.communitytoolkit\\1.0.0-pre4\\xamarin.communitytoolkit.1.0.0-pre4.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\aaabo\\.nuget\\packages\\xamarin.forms\\4.8.0.1560\\xamarin.forms.4.8.0.1560.nupkg.sha512"
+  ],
+  "logs": []
+}

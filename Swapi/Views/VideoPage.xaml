@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Swapi.VideoPage"
+             xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Kraschar ibland-->
+            <views:MediaElement x:Name="Video" HeightRequest="400"  WidthRequest="600" Source ="Movies/Anewhope.mp4"
+              ShowsPlaybackControls="True" AutoPlay="True" />
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
